@@ -160,10 +160,13 @@ context.lineTo(750, 340);
 context.closePath(); 
 context.fill(); 
 
-//萤火虫
+//firefly
 for(let i  = 0; i < 25 ; i++){
     context.beginPath();
-    context.fillStyle = "#ADFF2F";
+    let color = ["#808000", "#FFFF00", "#00FF00"];  // common firefly color in night
+    let index = Math.floor(Math.random() * 3);
+    context.fillStyle = color[index];
+
     let ranX = Math.floor(Math.random() * 901); // random location of x value
     let ranY = Math.floor(Math.random() * 601); // random location of y value
     context.arc(ranX, ranY, 3, 0, Math.PI * 2);

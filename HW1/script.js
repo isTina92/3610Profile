@@ -22,9 +22,12 @@ canv.height = (barHeight) * fruitData.length + 2 * startY;
 context.font = "bold 16px Arial";
 
 fruitData.forEach((fruit, index) => {
+    // define the color by refering fruit color
     context.fillStyle = fruit.color;
+    // make bar width
     context.fillRect(0, startY + (barHeight) * index, fruit.quantity * 25, barHeight);
 
     context.fillStyle = "black";
+    // write fruit name
     context.fillText(fruit.name + " - " + fruit.quantity, 5, startY + (barHeight) * index + barHeight / 2 + 6);
 });
