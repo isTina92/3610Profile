@@ -14,10 +14,8 @@ var fruitData = [
 
 var barHeight = 50; 
 var startY = 50;  // bar initial starting point
-
 // adjust canva heigh to ensure all bar can show up
 canv.height = (barHeight) * fruitData.length + 2 * startY;
-
 // change text style
 context.font = "bold 16px Arial";
 
@@ -26,7 +24,6 @@ fruitData.forEach((fruit, index) => {
     context.fillStyle = fruit.color;
     // make bar width
     context.fillRect(0, startY + (barHeight) * index, fruit.quantity * 25, barHeight);
-
     context.fillStyle = "black";
     // write fruit name
     context.fillText(fruit.name + " - " + fruit.quantity, 5, startY + (barHeight) * index + barHeight / 2 + 6);
