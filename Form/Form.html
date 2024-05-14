@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            background-image: url('./fancy.avif');
+            background-size: cover;
+        }
+        .container {
+            width: 300px;
+            padding: 16px;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 auto;
+            margin-top: 100px;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #1abc9c;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>BMI Calculator</h2>
+        <label>Weight (in kg):</label><br>
+        <input type="text" id="weight" required><br>
+        <label>Height (in cm):</label><br>
+        <input type="text" id="height" required><br><br>
+        <button onclick="calculateBMI()">Calculate BMI</button><br><br>
+        <label>Your BMI: </label><br>
+        <input type="text" id="bmi" disabled>
+    </div>
+    <script>
+        function calculateBMI() {
+            var weight = document.getElementById('weight').value;
+            var height = document.getElementById('height').value;
+            height = height / 100; // convert cm to m
+            var bmi = weight / (height * height);
+            document.getElementById('bmi').value = bmi.toFixed(2);
+        }
+    </script>
+</body>
+</html>
