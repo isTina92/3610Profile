@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("./6ca9846186254193e1a50cb3df1bd10ff326abe4.webp");
+        }
+        .calculator {
+            width: 500px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.95);
+            /* make the div stay in center */
+            margin: auto;
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0; 
+            /* text in center */
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="text"], input[type="radio"] {
+            margin: 5px;
+        }
+        button {
+            margin: 5px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Simple Calculator</h1>
+        <input type="text" id="num1" placeholder="First number">
+        <input type="text" id="num2" placeholder="Second number">
+        <br>
+        <input type="radio" id="add" name="operation" value="add">
+        <label for="add">addition</label>
+        <input type="radio" id="subtract" name="operation" value="subtract">
+        <label for="subtract">subtraction</label>
+        <input type="radio" id="multiply" name="operation" value="multiply">
+        <label for="multiply">multiplication</label>
+        <input type="radio" id="divide" name="operation" value="divide">
+        <label for="divide">division</label>
+        <br>
+        <button onclick="calculate()">calculate</button>
+        <br>
+        <h2 id="result"></h2>
+    </div>
+
+    <script>
+        function calculate() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            let operation = document.querySelector('input[name="operation"]:checked').value;
+            let result;
+
+            switch (operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = 'Please select an operators';
+            }
+
+            document.getElementById('result').innerText = 'Result: ' + result;
+        }
+    </script>
+</body>
+</html>
